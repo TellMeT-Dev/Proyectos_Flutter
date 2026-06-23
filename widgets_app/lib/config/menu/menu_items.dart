@@ -17,6 +17,13 @@ class MenuItem {
 
 const appMenuItems = <MenuItem>[
   MenuItem(
+    title: 'Contador', 
+    subTitle: 'Cuenta numeros XD', 
+    link: '/counter', 
+    icon: Icons.plus_one
+  ),
+  
+  MenuItem(
     title: 'Botones', 
     subTitle: 'Varios Botones en Flutter', 
     link: '/buttons', 
@@ -71,4 +78,6 @@ const appMenuItems = <MenuItem>[
     link: '/infinite', 
     icon: Icons.list_alt_rounded
   ),
+
+  
 ];
