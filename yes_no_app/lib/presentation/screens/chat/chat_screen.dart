@@ -11,22 +11,25 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Ligma Balls'),
-        leading: Padding(
-          padding: const EdgeInsets.all(4.0),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(
-              'https://talk.shapes.inc/api/avatar/-w9qf',
-              
+    return Padding(
+      padding: EdgeInsetsGeometry.only(top: 5),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Ligma Balls'),
+          leading: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                'https://talk.shapes.inc/api/avatar/-w9qf',
+                
+              ),
+      
             ),
-
           ),
+          centerTitle: false,
         ),
-        centerTitle: false,
+        body: _ChatView(),
       ),
-      body: _ChatView(),
     );
   }
 }
@@ -57,8 +60,11 @@ class _ChatView extends StatelessWidget {
                 },
               )
             ),
-            MessageFieldBox(
-              onValue: chatProvider.sendMessage,
+            Padding(
+              padding: EdgeInsetsGeometry.only(bottom: 10 ),
+              child: MessageFieldBox(
+                onValue: chatProvider.sendMessage,
+              ),
             ),
           ],
         ),

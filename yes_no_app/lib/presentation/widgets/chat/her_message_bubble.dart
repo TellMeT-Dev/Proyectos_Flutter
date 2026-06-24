@@ -27,58 +27,29 @@ class HerMessageBubble extends StatelessWidget {
 
         const SizedBox(height: 5),
 
-        _ImageBubble(imgUrl: message.imageUrl,),
+        //? _ImageBubble(imgUrl: message.imageUrl,),
+        _ImageBubble(),
       ],
     );
   }
 }
 
-class _ImageBubble extends StatelessWidget {
-
-  final String? imgUrl;
-
-  const _ImageBubble({required this.imgUrl});
-
-  @override
-  Widget build(BuildContext context) {
-    
-    
-    final size  = MediaQuery.of(context).size;
-
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Image.network(
-        imgUrl!,
-        width: size.width * 0.7,
-        height: 150,
-        fit: BoxFit.cover,
-        loadingBuilder: (context, child, loadingProgress) {
-          if(loadingProgress == null) return child;
-
-          return Container(
-            width: size.width * 0.7,
-            height: 150,
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: const Text('Freddy FreakBear esta mandando un mensaje'),
-          );
-        },
-        )
-    );
-  }
-}
-
-
 // class _ImageBubble extends StatelessWidget {
+
+//   final String? imgUrl;
+
+//   const _ImageBubble({required this.imgUrl});
 
 //   @override
 //   Widget build(BuildContext context) {
-
+    
+    
 //     final size  = MediaQuery.of(context).size;
 
 //     return ClipRRect(
 //       borderRadius: BorderRadius.circular(20),
 //       child: Image.network(
-//         'https://media.tenor.com/SfM2KrTdMJgAAAAM/freddy-freddy-fazbear.gif',
+//         imgUrl!,
 //         width: size.width * 0.7,
 //         height: 150,
 //         fit: BoxFit.cover,
@@ -96,3 +67,33 @@ class _ImageBubble extends StatelessWidget {
 //     );
 //   }
 // }
+
+
+class _ImageBubble extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+
+    final size  = MediaQuery.of(context).size;
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Image.network(
+        'https://media.tenor.com/SfM2KrTdMJgAAAAM/freddy-freddy-fazbear.gif',
+        width: size.width * 0.7,
+        height: 150,
+        fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if(loadingProgress == null) return child;
+
+          return Container(
+            width: size.width * 0.7,
+            height: 150,
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: const Text('Freddy FreakBear esta mandando un mensaje'),
+          );
+        },
+        )
+    );
+  }
+}
